@@ -1,1 +1,0 @@
-# krancce.github.io
