@@ -364,20 +364,21 @@ footer {
 }
 
 #about {
-    padding: 75px 15px;
+    padding: 65px 15px;
     border-bottom: 1px solid #dcd9d9;
     text-align: center
 }
 
 #about .container {
-    margin-top: 1rem
+    margin-top: 0rem
 }
 
 #about .portrait {
-    width: 15rem;
-    height: 15rem;
+    width: 21rem;
+    height: 32rem;
     border-radius: 50%;
-    margin-bottom: 1.5rem
+    margin-top: 0rem;
+    margin-right: 100%;
 }
 
 #about h2 {
@@ -385,7 +386,7 @@ footer {
 }
 
 #about .vertical-center {
-    height: 15rem;
+    height: 40rem;
     display: flex
 }
 
@@ -393,7 +394,7 @@ footer {
     text-align: left;
     color: #74808a;
     margin: 0;
-    align-self: center
+    align-self: right
 }
 
 #experience {
