@@ -364,7 +364,7 @@ footer {
 }
 
 #about {
-    padding: 65px 15px;
+    padding: 40px 15px;
     border-bottom: 1px solid #dcd9d9;
     text-align: center
 }
@@ -386,7 +386,7 @@ footer {
 }
 
 #about .vertical-center {
-    height: 40rem;
+    height: 50rem;
     display: flex
 }
 
