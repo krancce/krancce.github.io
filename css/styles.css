@@ -510,6 +510,50 @@ footer {
     color: #374054
 }
 
+#certificates {
+    padding: 50px 15px 20px 15px;
+    border-bottom: 1px solid #dcd9d9;
+    text-align: center
+}
+
+#certificates h2 {
+    color: #374054;
+    margin-bottom: 50px
+}
+
+.certificate-block {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    padding: 15px;
+    border: 1px solid #dcd9d9;
+    background: #fff;
+    text-align: left
+}
+
+.certificate-block h3 {
+    font-weight: 500;
+    float: left;
+    margin: 0;
+    color: #374054
+}
+
+.certificate-block span {
+    color: #74808a;
+    float: right
+}
+
+.certificate-block ul {
+    margin: 0;
+    color: #74808a;
+    font-size: 0.9em;
+    padding: 0 0 0 15px;
+    clear: both
+}
+
+.certificate-block li {
+    margin: 0 0 10px 0
+}
+
 #education {
     padding: 50px 15px 20px 15px;
     border-bottom: 1px solid #dcd9d9;
@@ -526,6 +570,7 @@ footer {
     margin: 0 auto 30px auto;
     padding: 15px;
     border: 1px solid #dcd9d9;
+    background: #fff;
     text-align: left
 }
 
@@ -594,7 +639,7 @@ footer {
     height: 300px;
     margin: 0 auto 30px auto;
     overflow: hidden;
-    background: #fff;
+    background: #f8f8f8;
     border-radius: 4px;
     display: flex
 }
@@ -760,7 +805,7 @@ footer {
     margin: 7px;
     padding: 5px 10px;
     color: #374054;
-    background: #e4e4ea;
+    background: #fff;
     list-style: none;
     cursor: default;
     font-size: 1.2em
@@ -1001,7 +1046,9 @@ footer {
     }
 
     .education-block h3,
-    .education-block span {
+    .education-block span,
+    .certificate-block h3,
+    .certificate-block span {
         float: none
     }
 
