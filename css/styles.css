@@ -65,7 +65,7 @@ body.active {
 
 header {
     position: absolute;
-    top: 0;
+    top: 30px;
     left: 0;
     right: 0;
     text-align: center;
@@ -78,12 +78,14 @@ header {
 
 header ul {
     display: inline-block;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     text-align: center;
-    padding: 10px;
+    padding: 12px 24px;
     margin: 0;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
 header li {
@@ -99,8 +101,9 @@ header a {
 header a:hover {
     color: #217dbb;
     text-decoration: none;
-    background: #eee;
-    border-radius: 4px
+    background: rgba(238, 238, 238, 0.8);
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
 
 header a:focus {
@@ -239,8 +242,10 @@ footer {
 .heading {
     position: relative;
     display: inline-block;
-    font-size: 2em;
-    font-weight: 300;
+    font-family: "Inter", "Lato", system-ui, sans-serif;
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 700;
+    letter-spacing: 0.2px;
     margin: 0 0 30px 0
 }
 
@@ -307,7 +312,7 @@ footer {
     color: #a0cfee;
     font-weight: 500;
     font-size: 2.25em;
-    margin-bottom: 100px
+    margin-bottom: 20px
 }
 
 #lead-content h3{
@@ -315,6 +320,54 @@ footer {
     font-weight: 500;
     font-size: 1.2em;
     line-height: 1.2em
+}
+
+.hero-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    margin: 18px 0 10px;
+    flex-wrap: wrap;
+}
+
+.hero-social .social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.hero-social .social-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-social .social-btn i {
+    font-size: 28px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-social .social-btn span {
+    font-weight: 500;
 }
 
 #lead-overlay {
@@ -372,30 +425,45 @@ footer {
 }
 
 #about {
-    padding: 40px 0px;
+    padding: 40px 15px;
     border-bottom: 1px solid #dcd9d9;
-    text-align: center
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#about .container {
-    margin-top: 0%
+.about-avatar {
+    margin-bottom: 30px;
 }
 
 #about .portrait {
-    width: 21rem;
-    height: 32rem;
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
-    margin-top: 30%;
-    margin-right: 100%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.about-content {
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 20px;
 }
 
 #about h2 {
-    color: #374054
+    color: #374054;
+    margin-bottom: 30px;
 }
 
-#about .vertical-center {
-    height: 60rem;
-    display: flex
+#about .about-content p {
+    text-align: left;
+    color: #74808a;
+    margin: 0;
+    line-height: 1.6;
 }
 
 #about p {
@@ -604,8 +672,28 @@ footer {
     padding: 0 0 0 15px
 }
 
+#featured-projects {
+    padding: 50px 0;
+    border-bottom: 1px solid #dcd9d9;
+    text-align: center
+}
+
+#featured-projects h2 {
+    color: #374054;
+    margin-bottom: 50px
+}
+
+.container-game {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
 #projects {
-    padding: 50px 15px;
+    padding: 50px 0;
     border-bottom: 1px solid #dcd9d9;
     text-align: center
 }
@@ -635,44 +723,109 @@ footer {
 
 .project-game {
     position: relative;
-    max-width: 900px;
-    height: 300px;
-    margin: 0 auto 30px auto;
+    height: auto;
+    margin: 0;
     overflow: hidden;
     background: #f8f8f8;
-    border-radius: 4px;
-    display: flex
+    border-radius: 8px;
+    display: flex;
+    align-items: stretch;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .project-game .project-image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+    width: 250px;
+    height: 250px;
+    flex-shrink: 0;
     overflow: hidden;
-    flex-shrink: 0
+    border-radius: 8px 0 0 8px;
+    display: block;
 }
 
 .project-game .project-image img {
-    width: 100%
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
 }
 
 .project-info {
-    align-self: center;
+    align-self: flex-start;
     flex-grow: 1;
-    padding: 15px
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 0;
+}
+
+.store-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 10px;
+    padding: 0;
+}
+
+.store-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    width: 100%;
+}
+
+.store-links a:hover {
+    transform: scale(1.05);
+}
+
+.store-links img {
+    max-width: 120px;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .project-info h3 {
-    font-size: 1.5em;
-    font-weight: 300;
+    font-size: 1.55em;
+    font-weight: 600;
     color: #374054;
-    margin: 0 0 15px 0
+    margin: 0 0 8px 0;
+    padding-top: 0;
+    line-height: 1.3;
+}
+
+.project-info h5 {
+    font-size: 0.95em;
+    font-weight: 500;
+    color: #7e8890;
+    margin: 0 0 6px 0;
+    padding: 0;
 }
 
 .project-info p {
     color: #74808a;
-    margin: 0 0 15px 0;
-    font-size: 0.9em
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    line-height: 1.5;
+    padding: 0;
+}
+
+.project-info > a:not(.store-links a) {
+    display: inline-block;
+    margin-top: 8px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.project-info > a:not(.store-links a):hover {
+    color: #217dbb;
+    text-decoration: underline;
 }
 
 .no-image .project-info {
@@ -817,16 +970,24 @@ footer {
     text-align: center
 }
 
-#contact h2 {
-    margin: 0 0 15px 0;
+#contact h2.heading {
     color: #fff;
-    font-weight: 500
+    margin-bottom: 40px;
+}
+
+#contact h2.heading:after {
+    background: #fff;
 }
 
 #contact-form {
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
-    text-align: left
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
 }
 
 #contact-form input,
@@ -893,12 +1054,22 @@ footer {
 }
 
 #contact-form article {
-    font-size: 2rem;
-    color: #f2f2f5
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.2em;
+    color: #fff;
+    margin: 0;
+}
+
+#contact-form article i {
+    font-size: 1.4em;
+    width: 28px;
+    text-align: center;
 }
 
 #contact-form article span {
-    margin-left: 2rem
+    margin: 0;
 }
 
 .optional-section {
@@ -993,11 +1164,32 @@ footer {
     }
 
     #about {
-        text-align: center
+        text-align: center;
+        padding: 30px 15px;
     }
 
-    #about p {
-        text-align: left
+    .about-avatar {
+        margin-bottom: 20px;
+    }
+
+    #about .portrait {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-content {
+        padding: 0 10px;
+    }
+
+    .container-game {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    #featured-projects,
+    #projects {
+        padding: 50px 0;
     }
 }
 
@@ -1008,7 +1200,8 @@ footer {
         z-index: 999;
         animation: none;
         bottom: 0;
-        height: 100%
+        height: 100%;
+        top: auto;
     }
 
     #mobile-menu-open,
@@ -1021,7 +1214,8 @@ footer {
         overflow-y: auto;
         box-shadow: none;
         border-radius: 0;
-        width: 100%
+        width: 100%;
+        padding: 20px 0;
     }
 
     #menu li {
@@ -1034,7 +1228,37 @@ footer {
     }
 
     #lead-content h2 {
-        font-size: 1.3em
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+
+    .hero-social {
+        gap: 16px;
+        margin: 12px 0 6px;
+    }
+
+    .hero-social .social-btn {
+        padding: 10px 14px;
+        font-size: 0.95rem;
+    }
+
+    .hero-social .social-btn i {
+        font-size: 22px;
+        width: 26px;
+        height: 26px;
+    }
+
+    #contact-form {
+        gap: 20px;
+    }
+
+    #contact-form article {
+        font-size: 1.1em;
+    }
+
+    #contact-form article i {
+        font-size: 1.3em;
+        width: 26px;
     }
 
     #lead-content a {
@@ -1055,13 +1279,41 @@ footer {
     .project-info {
         position: relative;
         margin: 0;
-        padding: 30px 15px;
+        padding: 14px 15px;
         top: auto;
-        transform: none
+        transform: none;
+        align-self: flex-start;
+        justify-content: flex-start;
+    }
+
+    .project-game {
+        height: auto;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .project-game .project-image {
-        display: none
+        width: 100%;
+        height: 250px;
+        flex-shrink: 0;
+        border-radius: 8px 8px 0 0;
+        display: block;
+    }
+
+    .project-game .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+    }
+
+    .store-links {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .store-links img {
+        max-width: 110px;
     }
 
     footer {
